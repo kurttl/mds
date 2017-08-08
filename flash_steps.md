@@ -3,7 +3,7 @@ flash steps
 
 ## Steps
 ```
-$ fastboot fih on
-$ fastboot devlock key
+$ fastboot oem fih on
+$ fastboot oem devlock key
 $ fastboot flash xxx xxx.img
 ```
