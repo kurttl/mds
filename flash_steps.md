@@ -5,5 +5,10 @@ flash steps
 ```
 $ fastboot oem fih on
 $ fastboot oem devlock key
-$ fastboot flash xxx xxx.img
+$ fastboot -w
+$ fastboot flash boot boot.img
+$ fastboot flash system system.img
+$ fastboot reboot
+(waiting for optimization)
+Press bottom left corner to setup wifi
 ```
