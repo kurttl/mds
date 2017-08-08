@@ -10,5 +10,5 @@ $ fastboot flash boot boot.img
 $ fastboot flash system system.img
 $ fastboot reboot
 (waiting for optimization)
-Press bottom left corner to setup wifi
+Press left corner bottom to setup wifi
 ```
