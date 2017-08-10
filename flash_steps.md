@@ -1,6 +1,7 @@
 flash steps
 ======
 
+Download the latest [fastboot](https://developer.android.com/studio/releases/platform-tools.html)
 ## Flash Steps
 ```
 $ fastboot oem fih on
