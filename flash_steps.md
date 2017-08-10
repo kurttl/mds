@@ -13,6 +13,7 @@ $ fastboot reboot
 Press left corner bottom to setup wifi
 ```
 ## Remount system
+Download the [su file](https://drive.google.com/file/d/0B-Yu3eNIy3kgZi1FTWh1YTRvTGM/view)
 ```
 $ adb push su /data/local/tmp/su
 $ adb shell
