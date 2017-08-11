@@ -38,6 +38,7 @@ Do not sync codebase into storage with type non-ext4 / exfat / NTFS
 | :------- | ----: |
 | Google .repo     | 38 GB |
 | Google checkout  | 22 GB |
+| Google out folder| 45 GB |
 | msm8917 .repo    | 48 GB |
 | msm8917 checkout | 21 GB |
 
