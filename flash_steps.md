@@ -14,7 +14,7 @@ flash steps
 ```
 $ fastboot oem fih on
 $ fastboot oem devlock key
-$ fastboot -w
+$ fastboot erase userdata
 $ fastboot flash boot boot.img
 $ fastboot flash system system.img
 $ fastboot reboot
