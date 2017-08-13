@@ -47,3 +47,12 @@ Now you should boot up in grub like environment, select "try ubuntu".
   5. Run the Ubuntu Installer. Do your configurations, select all update options. Choose the option with "along side Windows".
   6. Now you should have Windows and Ubuntu on your laptop!
 
+## Setup Ubuntu
+- Multi-Desktop
+  Right click mouse > Change Desktop Background >  
+  Click Behavior tag > Enable workspace  
+- Add Microsoft Designer Mouse  
+  Open Bluetooth Manager > Click Search button >  
+  Long press mouse power key over 5 sec >  
+  When Designer Mouse item shows up >  
+  Click trust button > Click pair button  
