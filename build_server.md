@@ -43,8 +43,14 @@ Do not sync codebase into storage with type non-ext4 / exfat / NTFS
 | msm8917 checkout | 21 GB |
 
 ## build command
+#### For AOSP
 [Build AOSP Nougat 7.0](https://developer.sonymobile.com/open-devices/aosp-build-instructions/how-to-build-aosp-nougat-for-unlocked-xperia-devices/build-aosp-nougat-7-0/)
 dell-xps-13-9360 spends **3.5 hours** to full build aosp android-7.1.2
+```
+$ source build/envsetup.sh && lunch aosp_arm64-eng
+$ make -j4 2>&1 |tee out-log.txt
+```
+#### For MSM8917
 ```
 $ source build/envsetup.sh && lunch msm8937_64-userdebug
 $ make -j4 2>&1 |tee out-log.txt
