@@ -1,4 +1,4 @@
-build server from kurt
+build server
 ====
 
 ## server
