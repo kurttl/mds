@@ -1,6 +1,26 @@
 logger
 ====
 ## Google design
+#### logcatd.rc
+system/core/logcat$ vim logcatd.rc
+```
+on property:logd.logpersistd.enable=true && property:logd.logpersistd=logcatd
+    # all exec/services are called with umask(077), so no gain beyond 0700
+    mkdir /data/misc/logd 0700 logd log
+    # logd for write to /data/misc/logd, log group for read from pstore (-L)
+    # b/28788401 b/30041146 b/30612424
+    # exec - logd log -- /system/bin/logcat -L -b ${logd.logpersistd.buffer:-all} -v threadtime -v usec -v printable -D -f /data/misc/logd/logcat -r 1024 -n ${logd.logpersistd.size:-256}
+    start logcatd
+
+# logcatd service
+service logcatd /system/bin/logcat -b ${logd.logpersistd.buffer:-all} -v threadtime -v usec -v printable -D -f /data/misc/logd/logcat -r 1024 -n ${logd.logpersistd.size:-256}
+    class late_start
+    disabled
+    # logd for write to /data/misc/logd, log group for read from log daemon
+    user logd
+    group log
+    writepid /dev/cpuset/system-background/tasks
+```
 
 ## H design
 #### issue
