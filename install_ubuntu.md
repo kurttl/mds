@@ -56,3 +56,5 @@ Now you should boot up in grub like environment, select "try ubuntu".
   Long press mouse power key over 5 sec >  
   When Designer Mouse item shows up >  
   Click trust button > Click pair button  
+  
+  If pair ok, but mouse still doesn't work, change the battery and try again.
