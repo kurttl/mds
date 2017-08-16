@@ -1,6 +1,9 @@
 logger
 ====
 ## Google design
+#### issue
+1. E klogd   : [  989.622552] init: Service logcatd does not have a SELinux domain defined.
+
 #### logcatd.rc
 system/core/logcat$ vim logcatd.rc
 ```
@@ -44,6 +47,12 @@ on property:ro.build.tags=test-keys
 
 on property:ro.build.tags=release-keys
     start recorder_rel
+```
+```
+logcat -v threadtime -f /dev/recorder_default
+logcat -v threadtime -f /dev/recorder_radio -b radio *:W
+logcat -v threadtime -f /dev/recorder_events:q
+-b event -s am_crash am_anr watchdog am_meminfo battery_level battery_status free_storage_left power_screen_state
 ```
 
 ## QCOM design
