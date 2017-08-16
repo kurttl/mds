@@ -55,3 +55,22 @@ $ make -j4 2>&1 |tee out-log.txt
 $ source build/envsetup.sh && lunch msm8937_64-userdebug
 $ make -j4 2>&1 |tee out-log.txt
 ```
+
+## boot image
+#### break
+```
+$ cd bootimgtool
+$ cp boot_xxx.img ./boot.img
+$ ./break_boot_image.sh
+(Check ./out/ramdisk)
+```
+#### combine
+```
+$ cd bootimgtool
+(Modify ./out/ramdisk)
+$ ./combine_boot_image.sh
+```
+#### sign
+```
+$ ./boot_signer /boot $PATH_TO_BOOT_IMAGE ./sign/TinkLabs.pkcs8 ./sign/TinkLabs.x509.pem $PATH_TO_BOOT_IMAGE_SIGNED
+```
