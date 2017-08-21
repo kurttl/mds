@@ -1,5 +1,19 @@
 logger
 ====
+## logcat args
+```
+"  -f <filename>   Log to file. Default is stdout\n"
+"  -r <kbytes>     Rotate log every kbytes. Requires -f\n"
+"  -n <count>      Sets max number of rotated logs to <count>, default 4\n"
+"  -v <format>     Sets the log print format, where <format> is:\n"
+"  -v threadtime -v usec -v printable"
+"  -D              print dividers between each log buffer\n"
+"  -b <buffer>     Request alternate ring buffer, 'main', 'system', 'radio',\n"
+"  --buffer=<buffer> 'events', 'crash', 'default' or 'all'. Multiple -b\n"
+"                  parameters are allowed and results are interleaved. The\n"
+"                  default is -b main -b system -b crash.\n"
+```
+
 ## Google design
 #### issue
 1. E klogd   : [  989.622552] init: Service logcatd does not have a SELinux domain defined.
