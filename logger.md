@@ -1,5 +1,51 @@
 logger
 ====
+
+## todo
+1. append into init.rc -> OK
+2. inject into sepolicy -> X, instead, we build sepolicy
+3. service oneshot ? -> NO
+4. start service on which property ?
+5. which log level is proper ?
+> S F E W I D V
+> W: 17 hours
+
+## init.rc dependency
+init.rc
+-> init.qcom.rc
+-> init.target.rc
+-> fstab.qcom
+
+## sepolicy reference
+Google patches in system/sepolicy
+[7e0838aa](https://android.googlesource.com/platform/external/sepolicy/+/7e0838a%5E%21/#F0)
+[483fd267](https://android.googlesource.com/platform/external/sepolicy/+/483fd267359a457ca4ac4c4a2cbce38af6c15981%5E!/)
+
+## build sepolicy
+```
+$ /data1/qct/fih_LA.UM.5.6.r1-01600-89xx.0/device/fih
+$ grep line /out/target/product/VZS/obj/ETC/sepolicy_intermediates/policy.conf | grep te |less
+
+$ cd ~/repos_qct/device/
+$ scp -r build@build.kurt13.com:/data1/qct/fih_LA.UM.5.6.r1-01600-89xx.0/device/fih .
+$ scp -r build@build.kurt13.com:/data1/qct/fih_LA.UM.5.6.r1-01600-89xx.0/device/fih_bsp .
+$ cd ~/repos_qct/frameworks/base/services/
+$ scp -r build@build.kurt13.com:/data1/qct/fih_LA.UM.5.6.r1-01600-89xx.0/frameworks/base/services/Android.mk .
+$ cd ~/repos_qct/frameworks/base/services/core/
+$ scp -r build@build.kurt13.com:/data1/qct/fih_LA.UM.5.6.r1-01600-89xx.0/frameworks/base/services/core/Android.mk .
+$ cd ~/repos_qct/frameworks/base/services/core/java/com/
+$ scp -r build@build.kurt13.com:/data1/qct/fih_LA.UM.5.6.r1-01600-89xx.0/frameworks/base/services/core/java/com/fihtdc .
+$ cd ~/repos_qct/system/sepolicy/
+$ scp -r build@build.kurt13.com:/data1/qct/fih_LA.UM.5.6.r1-01600-89xx.0/system/sepolicy/* .
+$ cd ~/repos_qct/device/qcom/sepolicy/
+$ scp -r build@build.kurt13.com:/data1/qct/fih_LA.UM.5.6.r1-01600-89xx.0/device/qcom/sepolicy/* .
+
+$ source build/envsetup.sh ;lunch VZS_00WW_FIH-user
+$ make file_contexts.bin property_contexts seapp_contexts service_contexts sepolicy -j5
+
+```
+
+
 ## logcat args
 ```
 "  -f <filename>   Log to file. Default is stdout\n"
