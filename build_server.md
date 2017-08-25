@@ -22,15 +22,22 @@ frameworks: /data1/tinklabs/vz1/VZH-0380-0-00WW-A03/
 [Android Developers](https://source.android.com/source/downloading)
 ```
 $ repo init -u https://android.googlesource.com/platform/manifest -b android-7.1.2_r33
-$ repo sync
+$ repo sync -cd --force-sync
 ```
 
-#### For MSM8917
+#### For MSM8917(MSM8937)
 [CodeAurora](https://wiki.codeaurora.org/xwiki/bin/QAEP/release)
 ```
 $ repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.6.r1-01600-89xx.0.xml
-$ repo sync
+$ repo sync -cd --force-sync
 ```
+
+#### For customized MSM8917(MSM8937)
+```
+$ repo init -u https://USER_NAME@rom-gerrit.handy.travel/manifest -b handy/master -m VZ1.xml
+$ repo sync -cd --force-sync
+```
+
 ## storage usage
 Do not sync codebase into storage with type non-ext4 / exfat / NTFS
 
