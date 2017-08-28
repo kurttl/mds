@@ -7,18 +7,18 @@ logger
 3. service oneshot ? -> NO
 4. start service on which property ?
 5. which log level is proper ?
-> S F E W I D V
-> W: 17 hours
+> S F E W I D V  
+> W: 17 hours  
 
 ## init.rc dependency
-init.rc
--> init.qcom.rc
--> init.target.rc
--> fstab.qcom
+init.rc  
+-> init.qcom.rc  
+-> init.target.rc  
+-> fstab.qcom  
 
 ## sepolicy reference
-Google patches in system/sepolicy
-[7e0838aa](https://android.googlesource.com/platform/external/sepolicy/+/7e0838a%5E%21/#F0)
+Google patches in system/sepolicy  
+[7e0838aa](https://android.googlesource.com/platform/external/sepolicy/+/7e0838a%5E%21/#F0)  
 [483fd267](https://android.googlesource.com/platform/external/sepolicy/+/483fd267359a457ca4ac4c4a2cbce38af6c15981%5E!/)
 
 ## build sepolicy
