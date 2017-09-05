@@ -1,14 +1,45 @@
 logger
 ====
+## log analysis
+~~logdump.26a.vzh: system_WE / kernel_W / kernel_E = 0.8M / 41M / 14M~~
+~~logdump.34a.vzh: system_WE / kernel_W / kernel_E = 15M / 29M / 11M~~
+~~logdump.380.vzc: system_WE / kernel_W / kernel_E = 1.1M / 40M / 16M~~
+
+#### 380 SU
+19/32 = 0.59 MB/hr   
+99/32 = 3.1 files/hr   
+19/99 = 0.19 MB/file   
+> 0904 0200   
+> 0905 1000 > 19 MB   
+
+#### 380 signed
+12/20 = 0.6 MB/hr   
+90/20 = 4.5 files/hr   
+12/90 = 0.13 MB/file   
+> 0904 1400   
+> 0905 1000 > 12 MB   
+
+#### 34A signed
+1.2/20 = 0.06 MB/hr   
+4/20 = 0.2 files/hr   
+1.2/4 = 0.3 MB/file   
+> 0904 1400   
+> 0905 1000 > 1.2 MB   
+
+#### 26A signed
+4.3/20 = 0.22 MB/hr   
+38/20 = 1.9 files/hr   
+4.3/38 = 0.11 MB/file   
+> 0904 1400   
+> 0905 1000 > 4.3 MB   
 
 ## todo
 1. append into init.rc -> OK
 2. inject into sepolicy -> X, instead, we build sepolicy
 3. service oneshot ? -> NO
-4. start service on which property ?
+4. start service on which property ? -> curl web page with JSON
 5. which log level is proper ?
 > S F E W I D V  
-> W: 17 hours  
 
 ## init.rc dependency
 init.rc  
