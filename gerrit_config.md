@@ -47,3 +47,32 @@ $ vim ~/review_site/etc/gerrit.config
 ```
 #### Allow the SMTP permission on your Google mail account
 https://myaccount.google.com/lesssecureapps
+
+## Install phppgadmin
+[link](https://www.howtoforge.com/tutorial/ubuntu-postgresql-installation/)   
+#### Install
+```
+$ sudo apt-get -y install postgresql postgresql-contrib phppgadmin
+```
+#### config apache2
+```
+$ sudo vim /etc/apache2/conf-available/phppgadmin.conf
+	# Only allow connections from localhost:
+	#Require local
+	allow from all
+$ sudo vim /etc/apache2/ports.conf
+	Listen 4000
+```
+#### config phppgadmin
+```
+$ sudo vim /etc/phppgadmin/config.inc.php
+	$conf['extra_login_security'] = false;
+```
+#### Restart PostgreSQL and Apache2
+```
+$ sudo systemctl enable postgresql
+$ sudo systemctl enable apache2
+$ sudo systemctl restart postgresql
+$ sudo systemctl restart apache2
+```
+#### Test http://rom-gerrit-raw.handy.travel:4000/phppgadmin/
