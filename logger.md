@@ -1,9 +1,9 @@
 logger
 ====
 ## log analysis
-~~logdump.26a.vzh: system_WE / kernel_W / kernel_E = 0.8M / 41M / 14M~~
-~~logdump.34a.vzh: system_WE / kernel_W / kernel_E = 15M / 29M / 11M~~
-~~logdump.380.vzc: system_WE / kernel_W / kernel_E = 1.1M / 40M / 16M~~
+~~logdump.26a.vzh: system_WE / kernel_W / kernel_E = 0.8M / 41M / 14M~~   
+~~logdump.34a.vzh: system_WE / kernel_W / kernel_E = 15M / 29M / 11M~~   
+~~logdump.380.vzc: system_WE / kernel_W / kernel_E = 1.1M / 40M / 16M~~   
 
 #### 380 SU
 19/32 = 0.59 MB/hr   
