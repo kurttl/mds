@@ -5,6 +5,8 @@ We enable services logdumpd_i/logdumpd_w/check_logdumpd in VZ1 devices.
 logdumpd service will write system/kernel log into /logdump partition.
 - The latest log will be recorded in /logdump/logcat
 - Old log will be rotated and gzipped in /logdump/logcat.001~/logdump/logcat.300
+- Normally these log count is 300 and occupy 30~40 MB
+- Record period is 3~6 days
 
 ## How to turn on/off logdumpd service?
 Need CMS to provide a web page with JSON format:
@@ -21,11 +23,8 @@ Allow APP permissions first
 - allow system_app logdumpd_file:dir rw_dir_perms;   
 - allow system_app logdumpd_file:file { unlink rw_file_perms };   
 
-APP packs /logdump/logcat* to a zip file and upload
-- Normally these log count is 300 and occupy 30~40 MB
-- Record period is 3~6 days
-
-App uploads log zip only Wifi enabled
+APP packs /logdump/logcat* to a log_all.zip file and upload   
+APP uploads log_all.zip only Wifi enabled   
 
 ## log analysis
 ~~logdump.26a.vzh: system_WE / kernel_W / kernel_E = 0.8M / 41M / 14M~~   
