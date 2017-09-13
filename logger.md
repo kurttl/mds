@@ -8,15 +8,24 @@ logdumpd service will write system/kernel log into /logdump partition.
 
 ## How to turn on/off logdumpd service?
 Need CMS to provide a web page with JSON format:
-- {"logdumpd_level":I} : turn on logdumpd_i to write log with level Fatal/Error/Warning/Info
 - {"logdumpd_level":W} : turn on logdumpd_w to write log with level Fatal/Error/Warning
+- {"logdumpd_level":I} : turn on logdumpd_i to write log with level Fatal/Error/Warning/Info
 - {"logdumpd_level":} : turn off logdumpd service
 
+Example:
+- http://s3-ap-southeast-1.amazonaws.com/handy-hk-cdn/ota/logdumpd_test/VZ1.txt
+- By default, the config is {"logdumpd_level":W}
+
 ## How to send back log files via APP
-Allow APP permissions
+Allow APP permissions first
 - allow system_app logdumpd_file:dir rw_dir_perms;   
 - allow system_app logdumpd_file:file { unlink rw_file_perms };   
 
+APP packs /logdump/logcat* to a zip file and upload
+- Normally these log count is 300 and occupy 30~40 MB
+- Record period is 3~6 days
+
+App uploads log zip only Wifi enabled
 
 ## log analysis
 ~~logdump.26a.vzh: system_WE / kernel_W / kernel_E = 0.8M / 41M / 14M~~   
