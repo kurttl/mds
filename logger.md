@@ -1,37 +1,60 @@
 logger
 ====
+## Intro
+We enable services logdumpd_i/logdumpd_w/check_logdumpd in VZ1 devices.   
+logdumpd service will write system/kernel log into /logdump partition.
+- The latest log will be recorded in /logdump/logcat
+- Old log will be rotated and gzipped in /logdump/logcat.001~/logdump/logcat.300
+
+## How to turn on/off logdumpd service?
+Need CMS to provide a web page with JSON format:
+- {"logdumpd_level":I} : turn on logdumpd_i to write log with level Fatal/Error/Warning/Info
+- {"logdumpd_level":W} : turn on logdumpd_w to write log with level Fatal/Error/Warning
+- {"logdumpd_level":} : turn off logdumpd service
+
+## How to send back log files via APP
+Allow APP permissions
+- allow system_app logdumpd_file:dir rw_dir_perms;   
+- allow system_app logdumpd_file:file { unlink rw_file_perms };   
+
+
 ## log analysis
 ~~logdump.26a.vzh: system_WE / kernel_W / kernel_E = 0.8M / 41M / 14M~~   
 ~~logdump.34a.vzh: system_WE / kernel_W / kernel_E = 15M / 29M / 11M~~   
 ~~logdump.380.vzc: system_WE / kernel_W / kernel_E = 1.1M / 40M / 16M~~   
 
 #### 380 SU
-19/32 = 0.59 MB/hr   
-99/32 = 3.1 files/hr   
-19/99 = 0.19 MB/file   
-> 0904 0200   
-> 0905 1000 > 19 MB   
+[2017-09-13 09:57:04] log_num: 300 (files)   
+[2017-09-13 09:57:04] space_used: 38.108 (mb)   
+[2017-09-13 09:57:04] record_time: 137.643 (hr) = 5.735 (days) from 09-07 16:18:24 to 09-13 09:57:00   
+[2017-09-13 09:57:04] 38.108 / 137.643 = 0.277 mb/hr   
+[2017-09-13 09:57:04] 300 / 137.643 = 2.180 files/hr   
+[2017-09-13 09:57:04] 38.108 / 300 = 0.127 mb/file   
 
 #### 380 signed
-12/20 = 0.6 MB/hr   
-90/20 = 4.5 files/hr   
-12/90 = 0.13 MB/file   
-> 0904 1400   
-> 0905 1000 > 12 MB   
+[2017-09-13 10:37:42] log_num: 300 (files)   
+[2017-09-13 10:37:42] space_used: 36.260 (mb)   
+[2017-09-13 10:37:42] record_time: 155.338 (hr) = 6.472 (days) from 09-06 23:05:18 to 09-13 10:25:35   
+[2017-09-13 10:37:42] 36.260 / 155.338 = 0.233 mb/hr   
+[2017-09-13 10:37:42] 300 / 155.338 = 1.931 files/hr   
+[2017-09-13 10:37:42] 36.260 / 300 = 0.121 mb/file   
 
 #### 34A signed
-1.2/20 = 0.06 MB/hr   
-4/20 = 0.2 files/hr   
-1.2/4 = 0.3 MB/file   
-> 0904 1400   
-> 0905 1000 > 1.2 MB   
+[2017-09-13 10:00:26] log_num: 250 (files)   
+[2017-09-13 10:00:26] space_used: 29.004 (mb)   
+[2017-09-13 10:00:26] record_time: 209.591 (hr) = 8.733 (days) from 09-04 16:24:51 to 09-13 10:00:18   
+[2017-09-13 10:00:26] 29.004 / 209.591 = 0.138 mb/hr   
+[2017-09-13 10:00:26] 250 / 209.591 = 1.193 files/hr   
+[2017-09-13 10:00:26] 29.004 / 250 = 0.116 mb/file   
 
 #### 26A signed
-4.3/20 = 0.22 MB/hr   
-38/20 = 1.9 files/hr   
-4.3/38 = 0.11 MB/file   
-> 0904 1400   
-> 0905 1000 > 4.3 MB   
+[2017-09-13 10:02:59] log_num: 300 (files)   
+[2017-09-13 10:02:59] space_used: 40.416 (mb)   
+[2017-09-13 10:02:59] record_time: 136.899 (hr) = 5.704 (days) from 09-07 17:08:57 to 09-13 10:02:52   
+[2017-09-13 10:02:59] 40.416 / 136.899 = 0.295 mb/hr   
+[2017-09-13 10:02:59] 300 / 136.899 = 2.191 files/hr   
+[2017-09-13 10:02:59] 40.416 / 300 = 0.135 mb/file   
+
 
 ## todo
 1. append into init.rc -> OK

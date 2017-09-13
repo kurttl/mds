@@ -31,3 +31,6 @@ $ chmod 755 /data/local/tmp/su
 $ /data/local/tmp/su
 # mount -o rw,remount /system
 ```
+
+## Image path
+Pure VZ1 image: /data1/tinklabs/vz1/VZH-0380-0-00WW-A03/fih/V0.380_A03/00WW
